@@ -78,7 +78,8 @@
             text-align: center;
             width: fit-content;
         }
-        .middle h1{
+
+        .middle h1 {
             margin: 15px 0;
         }
 
@@ -86,9 +87,10 @@
             margin: 10px 0;
         }
 
-        a i {
+        #fb-icon {
             color: white;
             font-size: 40px;
+            transition: color 3s ease-in 1s;
         }
 
         hr {
@@ -151,7 +153,7 @@
             <hr>
             <div id="demo" style="font-size:30px"></div>
             <div>
-                <a href="https://www.facebook.com/jospuree/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.facebook.com/jospuree/"><i class="fab fa-facebook" id="fb-icon"></i></a>
             </div>
 
         </div>
@@ -169,6 +171,8 @@
         //var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
 
         // Update the count down every 1 second
+        var tracktenseconds=0;
+        var tracker = 0;
         var countdownfunction = setInterval(function () {
 
             // Get todays date and time
@@ -192,6 +196,22 @@
             //     clearInterval(countdownfunction);
             //     document.getElementById("demo").innerHTML = "EXPIRED";
             // }
+            tracktenseconds++;
+            if (tracktenseconds == 9){
+                tracker++;
+                tracktenseconds=0;
+            }
+
+            if (tracker == 1)
+                document.getElementById("fb-icon").style.color = "white";
+            else if (tracker == 2)
+                document.getElementById("fb-icon").style.color = "red";
+            else{
+                document.getElementById("fb-icon").style.color = "green";
+                tracker=0;
+                }
+
         }, 1000);
+
     </script>
 </body>
