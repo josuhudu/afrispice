@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'dist/img/favicon.jpg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'twitter/css/all.min.css'%}">
+    <title>J0'S</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bgimg {
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/media/afrispice.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            color: white;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .topleft {
+            position: fixed;
+            top: 0;
+            left: 16px;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .greenstrip {
+            background: green;
+            flex: 1 1 auto;
+        }
+
+        .redstrip {
+            background: red;
+            flex: 1 1 auto;
+        }
+
+        .logo-name {
+            font-family: Candara, sans-serif;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+        }
+        .middle {
+            font-size: 25px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        #demo{
+            margin: 10px 0;
+        }
+        a i {
+            color: white;
+            font-size: 40px;
+        }
+
+        hr {
+            margin: auto;
+            width: 40%;
+            border: 1px solid red;
+        }
+        .bottom{
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            position: absolute;
+            bottom: 0;
+            box-sizing: border-box;
+            height: 50px;
+            display: flex;
+        }
+
+        .bottom div{
+            padding: 0 7px;
+            display: flex;
+            align-content: center;
+        }
+
+        .slogan{
+            flex: 1 2 auto;
+        }
+
+        .sponsors{
+            font-family: 'Candara', sans-serif;
+            flex: 1 4 auto;
+            display: flex;
+        }
+
+        .bottom img{
+            flex: 0;
+            max-height: 100%;
+            margin-left: 10px;
+        }
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="bgimg">
+        <div class="topleft">
+            <div class="greenstrip"></div>
+            <div class="redstrip"></div>
+            <div class="greenstrip"></div>
+            <div class="redstrip"></div>
+            <div class="greenstrip"></div>
+            <div class="redstrip"></div>
+            <div class="greenstrip"></div>
+            <div class="redstrip"></div>
+            <div class="greenstrip"></div>
+            <div class="redstrip"></div>
+            <div class="greenstrip"></div>
+            <div class="logo-name">JO'S</div>
+        </div>
+        <div class="middle">
+            <h1>COMING SOON</h1>
+            <hr>
+            <div id="demo" style="font-size:30px"></div>
+            <div>
+                <a href="https://www.facebook.com/jospuree/"><i class="fab fa-facebook"></i></a>
+            </div>
+
+        </div>
+        <div class="bottom">
+            <div class="slogan">FARM FRESH</div>
+            <div class="sponsors">
+                All products available at:
+                <img src="/media/chandarana.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the date we're counting down to
+        //var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+
+        // Update the count down every 1 second
+        var countdownfunction = setInterval(function () {
+
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now an the count down date
+            //var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            //var days = Math.floor(now / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)+3);
+            var minutes = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((now % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text 
+            // if (distance < 0) {
+            //     clearInterval(countdownfunction);
+            //     document.getElementById("demo").innerHTML = "EXPIRED";
+            // }
+        }, 1000);
+    </script>
+</body>

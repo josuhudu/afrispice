@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Title -->
+  <title>inkwell | Log in</title>
+  <!-- Description -->
+  <meta name="description"
+    content="Inkwell is an active project intended to evolve into a student website and application at the Premier University of Nairobi.">
+  <!-- og:title -->
+  <meta property="og:title" content="Inkwell | Log in" />
+  <!-- og:url -->
+  <meta property="og:url" content="{% url 'login' %}" />
+  <!-- og:description -->
+  <meta property="og:description" content="A student webiste for the University of Nairobi.">
+  <!-- og:image -->
+  <meta property="og:image" content="{% static 'dist/img/login-bg.jpg' %}">
+
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="{% static 'dist/img/favicon.jpg' %}">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{% static 'AdminLTE3.0.1/plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'portal/in_components/font-awesome/css/font-awesome.min.css' %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{% static 'portal/in_components/Ionicons/css/ionicons.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'AdminLTE3.0.1/dist/css/adminlte.min.css' %}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+    .body-bg {
+      background-image: linear-gradient(to left, rgba(23, 162, 184, 0.2), rgba(23, 162, 184, 0.9)),
+      url({% static 'dist/img/login-bg.jpg' %});
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+
+
+<body class="hold-transition login-page body-bg">
+  <div class="login-box">
+    {% if messages %}
+    <div class="content-header">
+      <div class="container">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+          {{ message }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    <div class="login-logo d-flex justify-content-center" style="color:white">
+      <a href="{% url 'home' %}">
+        <div class="user-block">
+          <img src="{% static 'dist/img/logo.jpg' %}" alt="User profile picture">
+        </div>
+        <span style="color:white"><b>ink</b>well
+      </a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        {% if form.errors %}
+        <label class="col-form-label" for="inputError"><i class="far fa-times-circle text-danger"></i>
+          Your registration and password didn't match.
+          Please try again.
+        </label>
+        {% endif %}
+
+        {% if next %}
+        {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed,
+          please login with an account that has access.</p>
+        {% else %}
+        <p class="text-center text-success">Please login to see this page.</p>
+        {% endif %}
+        {% endif %}
+        <p class="login-box-msg">Sign in to start your session</p>
+
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <input name="username" type="text" class="form-control" placeholder="Registration No.">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input name="password" type="password" class="form-control" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-8">
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+              <input type="hidden" name="next" value="{{ next }}">
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+        <p class="mb-1">
+          <a href="{% url 'password_reset' %}">I forgot my password</a>
+        </p>
+        <p class="mb-0">
+          <a href="{% url 'register' %}" class="text-center">Register a new membership</a>
+        </p>
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+
+
+  </div>
+  <!-- /.login-box -->
+  </div>
+
+  <!-- jQuery -->
+  <script src="{% static 'AdminLTE3.0.1/plugins/jquery/jquery.min.js' %}"></script>
+  <!-- Bootstrap 4 -->
+  <script src="{% static 'AdminLTE3.0.1/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <!-- AdminLTE App -->
+  <script src="{% static 'AdminLTE3.0.1/dist/js/adminlte.min.js' %}"></script>
+
+</body>
+
+</html>

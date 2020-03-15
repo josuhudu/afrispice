@@ -1,0 +1,327 @@
+/* Style the links inside the sidenav */
+#mySidenav a {
+  position: fixed; /* Position them relative to the browser window */
+  left: -80px; /* Position them outside of the screen */
+  transition: 0.3s; /* Add transition on hover */
+  padding: 15px; /* 15px padding */
+  width: 110px; /* Set a specific width */
+  text-decoration: none; /* Remove underline */
+  font-size: 15px; /* Increase font size */
+  color: white; /* White text color */
+  border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#mySidenav a i {
+  position: absolute;
+  right: 0;
+  padding-right: 10px;
+}
+#mySidenav a:hover {
+  left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+/* The about link: 20px from the top with a green background */
+#about {
+  position: fixed;
+  top: 120px;
+  background-color: #ffc107;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000000;
+  padding-top: 50px;
+  width: 90vw;
+  height: 80vh;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.5),
+    rgba(23, 162, 184, 0.8)
+  );
+  border-radius: 5px;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: wheat;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  height: 90%;
+  max-width: 1200px;
+}
+
+.itinerary-date {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  font-size: small;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* ////////////////////////////////////////////////////////////////////// */
+/* ++++++++++++++++++++++++++++ Components +++++++++++++++++++++++++++ */
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+  /* ------------------- Side-panel and Drawer ---------------------------- */
+  .panel{
+    background-color: rgb(21, 32, 43);
+    z-index: 2;
+  }
+
+  .drawer{
+    z-index: 1;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    /* z-index: 100; Sit on top */
+    left: 0;
+    bottom: 0;
+    width: 0; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(110, 118, 125, 0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+    transition: opacity 0.2s;
+}
+    .drawer-content{
+        display: none;
+    }
+
+  .drawer-content .category-header{
+    z-index: 2;
+    display: flex; 
+    padding: 0 18px;
+    height: 53px;
+  }
+    /* The sidepanel menu */
+
+  /* Position and style the close button (top right corner) */
+  .closebtn {
+    display: none;
+    font-size: 36px;
+  }
+
+  .side-panel{
+    display: none;
+    position: absolute;
+    border: 1px solid rgb(207, 201, 201);
+    min-width: 160px;
+    right: 0;
+    border-radius: 10px;
+    width: 100%;
+    top: 0;
+  }
+
+    .context-menu-dropdown{
+    display: none;
+    position: absolute;
+    border: 1px solid rgb(207, 201, 201);
+    min-width: 160px;
+    right: 0;
+    border-radius: 10px;
+    width: 100%;
+    top: 0;
+  }
+
+  .panel a, .panel-link{
+    box-sizing: border-box;
+    color: #fff;
+    padding: 14px 18px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+  }
+
+  .panel a:hover{
+      background: rgb(25, 39, 52);
+  }
+
+  .drawer-header{
+      padding: 10px 20px 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: fit-content;
+  }
+
+  .drawer-header a{
+      padding: 0;
+  }
+  .drawer-header-text-div{
+    padding: 9px 18px;
+  }
+
+  .drawer-header img{
+    width: 39px;
+}
+
+.bottom-navigation {
+  display: none;
+  justify-content: space-evenly;
+  color: #8899a6;
+  border-top: 1px solid rgb(56, 68, 77);
+  background-color: rgb(21, 32, 43);
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 52.5px;
+}
+
+.bottom-link {
+  display: block;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+   /* ////////////////////////////////////////////////////////////////////// */
+/* ++++++++++++++++++++++++++++ Stand Alone +++++++++++++++++++++++++++ */
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+
+/* ////////////////////////////////////////////////////////////////////// */
+/* ++++++++++++++++++++++++++++ @-tags +++++++++++++++++++++++++++ */
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+
+@media only screen and (max-width: 768px){
+  .left-wrapper{
+      display: none;
+  }
+
+  .right-column{
+      display: none;
+  }
+
+  .xs-hidden{
+      display: initial;
+  }
+
+  .bottom-navigation{
+      display: flex;
+  }
+
+  .right-wrapper{
+      padding-bottom: 53px;
+  }
+  .inside-main{
+      height: fit-content;
+  }
+  .middle-column{
+      flex: 0 0 100vw;
+      height: 100%;
+  }
+
+
+  .button-float{
+      display: block;
+
+  }
+  #hamburger{
+      display: inline;
+  }
+  .add-article{
+      display: none;
+  }
+  .drawer{
+      display: block;
+      -webkit-animation-name: fadeIn; /* Fade in the background */
+      -webkit-animation-duration: 0.4s;
+      animation-name: fadeIn;
+      animation-duration: 0.4s;
+  }
+  .drawer-content{
+      border-radius: 0;
+      border: 0;
+      display: block;
+      height: 100%; /* Specify a height */
+      min-width: 0;
+      width: 0; /* 0 width - change this with JavaScript */
+      position: fixed; /* Stay in place */
+      z-index: 10; /* Stay on top */
+      top: 0;
+      left: 0;
+      background-color: rgb(21, 32, 43);; /* Black*/
+      overflow-x: hidden; /* Disable horizontal scroll */
+      transition: 0.4s; /* 0.5 second transition effect to slide in the sidepanel */
+  }
+
+  #drawer .closebtn {
+      display: initial;
+  }
+
+  /* Modal Content */
+  /*! .modal-content {
+      position: absolute; */
+      /* height: fit-content; */
+      /* bottom: 0;
+      background-color: rgb(21, 32, 43);
+      width: 100%;
+      -webkit-animation-name: slideIn;
+      -webkit-animation-duration: 0.4s;
+      animation-name: slideIn;
+      animation-duration: 0.5s
+  } */
+
+  /*! .modal-content a{
+      display: block;
+      padding: 15px;
+      color: white;
+  } */
+
+/* !.modal-footer {
+  margin: 10px 15px;
+  padding: 2px 16px;
+  background-color: rgba(110, 118, 125, 0.4);
+  text-align: center;
+  border-radius: 9999px;
+} */
+.form-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  border-radius: 0;
+  transform: translate(0,0);
+  overflow: hidden;
+  min-width: 100vw;
+  height: 100%;
+}
+.form-modal textarea{
+  height: 150px;
+  width: 328px;
+}
+  .form-button-default{
+      position: fixed;
+      right: 0;
+      top: 0;
+      margin: 15px 10px;
+  }
+}
