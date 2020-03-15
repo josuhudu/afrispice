@@ -5,9 +5,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>JO'S | {{ title|default:"Farm Fresh" }}</title>
+    <!-- Description -->
+    <meta name="description" 
+    content="Home of the freshest and most natural spices.">
+    <!-- og:title -->
+    <meta property="og:title" content="JO'S | {{ title|default:"Farm Fresh" }}" />
+    <!-- og:url -->
+    <meta property="og:url" content="http://afrispice.pythonanywhere.com/" />
+    <!-- og:description -->
+    <meta property="og:description" content="Home of the freshest and most natural spices.">
+    <!-- og:image -->
+    <meta property="og:image" content="{% static 'dist/img/favicon.jpg' %}">
+
     <link rel="shortcut icon" href="{% static 'dist/img/favicon.jpg' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'twitter/css/all.min.css'%}">
-    <title>J0'S</title>
     <style>
         body,
         html {
