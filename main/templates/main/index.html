@@ -8,8 +8,7 @@
     <!-- Title -->
     <title>JO'S | {{ title|default:"Farm Fresh" }}</title>
     <!-- Description -->
-    <meta name="description" 
-    content="Home of the freshest and most natural spices.">
+    <meta name="description" content="Home of the freshest and most natural spices.">
     <!-- og:title -->
     <meta property="og:title" content="JO'S | {{ title|default:"Farm Fresh" }}" />
     <!-- og:url -->
@@ -26,6 +25,7 @@
         html {
             height: 100%;
             margin: 0;
+            overflow: hidden;
         }
 
         .bgimg {
@@ -68,6 +68,7 @@
             transform: translate(-50%, -50%);
             font-size: 40px;
         }
+
         .middle {
             font-size: 25px;
             position: absolute;
@@ -75,11 +76,16 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
+            width: fit-content;
+        }
+        .middle h1{
+            margin: 15px 0;
         }
 
-        #demo{
+        #demo {
             margin: 10px 0;
         }
+
         a i {
             color: white;
             font-size: 40px;
@@ -90,7 +96,8 @@
             width: 40%;
             border: 1px solid red;
         }
-        .bottom{
+
+        .bottom {
             font-family: 'Times New Roman', Times, serif, sans-serif;
             position: absolute;
             bottom: 0;
@@ -99,30 +106,27 @@
             display: flex;
         }
 
-        .bottom div{
+        .bottom div {
             padding: 0 7px;
             display: flex;
             align-content: center;
         }
 
-        .slogan{
+        .slogan {
             flex: 1 2 auto;
         }
 
-        .sponsors{
+        .sponsors {
             font-family: 'Candara', sans-serif;
             flex: 1 4 auto;
             display: flex;
         }
 
-        .bottom img{
+        .bottom img {
             flex: 0;
             max-height: 100%;
             margin-left: 10px;
         }
-
-
-        
     </style>
 </head>
 
@@ -175,7 +179,7 @@
 
             // Time calculations for days, hours, minutes and seconds
             //var days = Math.floor(now / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)+3);
+            var hours = Math.floor((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) + 3);
             var minutes = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((now % (1000 * 60)) / 1000);
 
